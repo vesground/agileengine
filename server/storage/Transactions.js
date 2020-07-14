@@ -1,6 +1,6 @@
-import Transaction from 'models/Transaction.js''
+import Transaction from 'model/Transaction.js';
 
-const Transaction = (function () {
+const Storage = (function () {
   let instance = null;
 
   let transactions = [];
@@ -44,4 +44,4 @@ const Transaction = (function () {
   }
 })();
 
-export Transaction.getInstance();
+export default Storage.getInstance();

@@ -1,6 +1,6 @@
 import User from 'models/User.js''
 
-const User = (function () {
+const Storage = (function () {
   let instance = null;
 
   let users = [];
@@ -44,4 +44,4 @@ const User = (function () {
   }
 })();
 
-export User.getInstance();
+export default Storage.getInstance();
