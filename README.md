@@ -1,5 +1,9 @@
 React + Node.js finance app. Completed approximately in 5h.
 
+## !!!!
+
+Don't forget to install dependencies&
+
 ## Available Scripts
 
 In the project directory, you can run:
