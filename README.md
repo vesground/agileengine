@@ -9,6 +9,11 @@ In the project directory, you can run:
 Builds and runs the app in the production mode.<br />
 Open [http://localhost:4000](http://localhost:4000) to view it in the browser.
 
+### `yarn server`
+
+Runs the app in the production mode.<br />
+Open [http://localhost:4000](http://localhost:4000) to view it in the browser.
+
 ### `yarn build`
 
 Builds the app for production to the `build` folder.<br />
