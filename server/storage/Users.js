@@ -1,4 +1,4 @@
-import User from 'models/User.js''
+import User from 'model/User.js';
 
 const Storage = (function () {
   let instance = null;
@@ -28,9 +28,11 @@ const Storage = (function () {
     const user = users.find((user) => user.id == id);
     return user;
   };
+  const getDefault = () => users[0]
 
   const createInstance = function () {
     return {
+      getDefault,
       get,
       create,
       update,
@@ -44,4 +46,8 @@ const Storage = (function () {
   }
 })();
 
-export default Storage.getInstance();
+const Instance = Storage.getInstance();
+
+Instance.create({ first_name: 'Kyrylo', last_name: 'Stas' });
+
+export default Instance;
