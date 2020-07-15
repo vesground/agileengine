@@ -26,17 +26,14 @@ function Details({
     fetchTransaction();
   }, []);
 
-  console.log('here', transaction?.effectiveDate);
-
   const type = transaction?.type;
   const convertedData = transaction?.effectiveDate ? new Date(transaction?.effectiveDate * 1000) : '-';
-  console.log('and here', convertedData);
 
   return (
     <div className={prefix}>
       {transaction != null && (
         <>
-          <Text className={`${prefix}__date`}>{convertedData}</Text>
+          <Text className={`${prefix}__date`}>{`${convertedData}`}</Text>
           <Text className={classnames(`${prefix}__type`, {
             [`${prefix}__debit`]: type == DEBIT,
             [`${prefix}__credit`]: type == CREDIT,
