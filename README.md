@@ -2,7 +2,10 @@ React + Node.js finance app. Completed approximately in 5h.
 
 ## !!!!
 
-Don't forget to install dependencies&
+Don't forget to install dependencies.
+
+curl --header "Content-Type: application/json" --request POST --data '{"type":"credit","amount":"400"}' http://localhost:4000/api/v1/transactions
+curl --header "Content-Type: application/json" --request POST --data '{"type":"debit","amount":"300"}' http://localhost:4000/api/v1/transactions
 
 ## Available Scripts
 
