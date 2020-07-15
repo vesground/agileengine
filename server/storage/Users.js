@@ -1,6 +1,6 @@
-import User from 'models/User.js''
+import User from 'model/User.js';
 
-const User = (function () {
+const Storage = (function () {
   let instance = null;
 
   let users = [];
@@ -10,16 +10,20 @@ const User = (function () {
     users = [...users, newUser];
     return newUser;
   };
-  const update = (id, { [key]: [value] }) => {
+  const update = (id, newValues) => {
+    console.log('update', newValues);
     const user = users.find((user) => user.id == id);
 
     const updatedUser = { ...user };
-    updatedUser[key] = value;
+
+    for (const key in newValues) {
+      updatedUser[key] = newValues[key];
+    };
 
     const index = users.indexOf(user);
 
     if (index !== -1) {
-      users = [...slice(0, index), updatedUser, ...slice(index+1)];
+      users = [...users.slice(0, index), updatedUser, ...users.slice(index+1)];
     };
 
     return updatedUser;
@@ -28,9 +32,11 @@ const User = (function () {
     const user = users.find((user) => user.id == id);
     return user;
   };
+  const getDefault = () => users[0]
 
   const createInstance = function () {
     return {
+      getDefault,
       get,
       create,
       update,
@@ -44,4 +50,8 @@ const User = (function () {
   }
 })();
 
-export User.getInstance();
+const Instance = Storage.getInstance();
+
+Instance.create({ first_name: 'Kyrylo', last_name: 'Stas' });
+
+export default Instance;

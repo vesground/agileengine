@@ -1,12 +1,12 @@
-import Transaction from 'models/Transaction.js''
+import Transaction from 'model/Transaction.js';
 
-const Transaction = (function () {
+const Storage = (function () {
   let instance = null;
 
   let transactions = [];
 
-  const create = ({ first_name, last_name }) => {
-    const newTransaction = Transaction({ first_name, last_name });
+  const create = ({ author, type, amount }) => {
+    const newTransaction = Transaction({ author, type, amount });
     transactions = [...transactions, newTransaction];
     return newTransaction;
   };
@@ -28,10 +28,15 @@ const Transaction = (function () {
     const transaction = transactions.find((transaction) => transaction.id == id);
     return transaction;
   };
+  const list = () => {
+    const sortedByDateTtransactions = transactions.sort((prevTransaction, nextTransaction) => prevTransaction.created_at - prevTransaction.nextTransaction);
+    return sortedByDateTtransactions;
+  };
 
   const createInstance = function () {
     return {
       get,
+      list,
       create,
       update,
     }
@@ -44,4 +49,4 @@ const Transaction = (function () {
   }
 })();
 
-export Transaction.getInstance();
+export default Storage.getInstance();

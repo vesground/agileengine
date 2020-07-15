@@ -1,0 +1,19 @@
+.app-button {
+  width: 136px;
+  height: 40px;
+
+  border: 1px solid #171296;
+  box-sizing: border-box;
+  border-radius: 24px;
+
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+
+  > .app-text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #171296;
+  }
+}

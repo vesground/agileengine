@@ -1,16 +1,12 @@
 {
   "presets": [
-    ["@babel/preset-env",
-      {
-        "targets": {
-          "node": "current"
-        }
-      }
-    ]
+    "@babel/preset-env",
+    "@babel/preset-react"
   ],
   "plugins": [
-     ["babel-plugin-module-resolver", {
-       "root": ["./src", "./server"],
+    ["@babel/plugin-transform-react-jsx"],
+    ["babel-plugin-module-resolver", {
+      "root": ["./src", "./server"],
      }]
   ]
 }
