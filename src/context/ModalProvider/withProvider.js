@@ -1,12 +1,12 @@
 import React from 'react';
-import { UserContext } from './context';
+import { ModalContext } from './context';
 
-export function withUserProvier(Component) {
+export function withModalProvier(Component) {
   return function HOC(props) {
     return (
-      <UserContext.Consumer>
+      <ModalContext.Consumer>
         {contexts => <Component {...props} {...contexts} />}
-      </UserContext.Consumer>
+      </ModalContext.Consumer>
     );
   };
 }

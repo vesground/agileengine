@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { ModalContext } from './context';
 import Modal from 'components/Modal';
 
-const UserProvider = ({ children }) => {
+const ModalProvider = ({ children }) => {
   const [component, setComponent] = useState(null);
   const [props, setProps] = useState({});
 
@@ -18,13 +18,13 @@ const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider
+    <ModalContext.Provider
       value={{
         modalContext: {
           component,
           props,
           showModal,
-          hideModal: this.hideModal,
+          hideModal,
         },
       }}
     >

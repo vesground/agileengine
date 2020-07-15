@@ -2,7 +2,7 @@ import React from 'react';
 
 import UserProvider from 'context/UserProvider/index.js';
 import ModalProvider from 'context/ModalProvider/index.js';
-import TransactionsList from 'routes/TransactionsList';
+import Transactions from 'routes/Transactions';
 
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <UserProvider>
       <ModalProvider>
-        <TransactionsList />
+        <Transactions />
       </ModalProvider>
     </UserProvider>
   );
