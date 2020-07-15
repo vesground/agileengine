@@ -32,7 +32,7 @@ const httpClient = (method = 'get') => ({
       data,
     });
 
-    return response;
+    return response?.data;
   } catch (error) {
     return error;
   }

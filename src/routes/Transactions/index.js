@@ -13,7 +13,7 @@ function Transactions({
   return (
     <div className='app-transactions'>
       <User {...user} />
-      <List userId={user.id} />
+      <List userId={user?.id} />
     </div>
   );
 }

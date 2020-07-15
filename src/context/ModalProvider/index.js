@@ -5,16 +5,13 @@ import Modal from 'components/Modal';
 
 const ModalProvider = ({ children }) => {
   const [component, setComponent] = useState(null);
-  const [props, setProps] = useState({});
 
-  const showModal = (component, props = {}) => {
+  const showModal = (component) => {
     setComponent(component);
-    setProps(props);
   };
 
   const hideModal = () => {
     setComponent(null);
-    setProps({});
   };
 
   return (
@@ -22,7 +19,6 @@ const ModalProvider = ({ children }) => {
       value={{
         modalContext: {
           component,
-          props,
           showModal,
           hideModal,
         },
@@ -33,8 +29,6 @@ const ModalProvider = ({ children }) => {
         <Modal
           component={component}
           hideModal={hideModal}
-          // open
-          {...props}
         />
       ) : null}
     </ModalContext.Provider>

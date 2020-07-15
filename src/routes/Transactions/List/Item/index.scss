@@ -1,0 +1,29 @@
+.app-transactions-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 48px);
+  height: 120px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 2px 24px rgba(50, 50, 50, 0.08);
+  border-radius: 16px;
+
+  margin-bottom: 8px;
+  padding: 0 24px;
+
+  cursor: pointer;
+
+  > .app-text {
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: bold;
+  }
+
+  &__debit {
+    color: #3E62F5;
+  }
+  &__credit {
+    color: #F74067;
+  }
+}

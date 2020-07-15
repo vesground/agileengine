@@ -1,6 +1,8 @@
 import React from 'react';
 
-import './index.css';
+import Text from 'components/Text';
+
+import './index.scss';
 
 function User({
   firstName,
@@ -9,9 +11,8 @@ function User({
 }) {
   return (
     <div className='app-transactions-user'>
-      <p>{firstName}</p>
-      <p>{lastName}</p>
-      <p>{amount}</p>
+      <Text className='app-transactions-user__name'>Hello, {firstName} {lastName}</Text>
+      <Text className='app-transactions-user__amount'>Account Ballance ${amount}</Text>
     </div>
   );
 }

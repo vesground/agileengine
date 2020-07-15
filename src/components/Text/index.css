@@ -1,0 +1,11 @@
+.app-text {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+  color: #323232;
+
+  margin: 0;
+  padding: 0;
+}

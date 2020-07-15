@@ -1,19 +1,22 @@
 import React from 'react';
 
-import './index.css';
+import Button from 'components/Button/index.js';
+
+import './index.scss';
 
 const Modal = ({
-  component: Component,
+  component,
   open,
   hideModal,
   ...props
 }) => {
   return (
-    <div class='modal'>
-      <div class="container">
-        <div class="content">
-          <Component {...props} />
+    <div className='app-modal'>
+      <div className="app-modal__container">
+        <div className="app-modal__content">
+          {component}
         </div>
+        <Button onClick={hideModal}>Close</Button>
       </div>
     </div>
   );
