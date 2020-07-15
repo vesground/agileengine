@@ -5,8 +5,7 @@ const Transaction = ({ author, type, amount }) => ({
   author,
   type,
   amount,
-  created_at: Date.now(),
-  updated_at: Date.now(),
+  effective_date: Date.now(),
 });
 
 export default Transaction;

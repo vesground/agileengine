@@ -5,7 +5,7 @@ const User = ({ first_name = 'empty', last_name = 'empty' }) => ({
   first_name,
   last_name,
   transactions: [],
-  account_value: 0,
+  amount: 0,
 });
 
 export default User;

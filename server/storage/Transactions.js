@@ -28,10 +28,15 @@ const Storage = (function () {
     const transaction = transactions.find((transaction) => transaction.id == id);
     return transaction;
   };
+  const list = () => {
+    const sortedByDateTtransactions = transactions.sort((prevTransaction, nextTransaction) => prevTransaction.created_at - prevTransaction.nextTransaction);
+    return sortedByDateTtransactions;
+  };
 
   const createInstance = function () {
     return {
       get,
+      list,
       create,
       update,
     }
