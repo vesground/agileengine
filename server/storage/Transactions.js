@@ -5,8 +5,8 @@ const Storage = (function () {
 
   let transactions = [];
 
-  const create = ({ first_name, last_name }) => {
-    const newTransaction = Transaction({ first_name, last_name });
+  const create = ({ author, type, amount }) => {
+    const newTransaction = Transaction({ author, type, amount });
     transactions = [...transactions, newTransaction];
     return newTransaction;
   };

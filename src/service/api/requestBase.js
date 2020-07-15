@@ -1,5 +1,6 @@
 import axios from 'axios';
-// import cookieReader from 'js-cookie';
+
+import { keysToCamel } from 'service/helpers.js'
 
 const API_URL = 'http://localhost:4000/api/v1';
 
@@ -32,7 +33,7 @@ const httpClient = (method = 'get') => ({
       data,
     });
 
-    return response?.data;
+    return response?.data && keysToCamel(response?.data);
   } catch (error) {
     return error;
   }

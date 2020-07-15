@@ -13,38 +13,40 @@ import './index.scss';
 
 const prefix = 'app-transactions-list-item-details';
 function Details({
-  transactionId,
+  id,
   userContext: { user }
 }) {
-  const [transaction, setTransaction] = useState({
-    "id": "string",
-    "type": "credit",
-    "amount": 0,
-    "effectiveDate": "2020-07-15T05:12:30.811Z"
-  });
+  const [transaction, setTransaction] = useState(null);
 
   useEffect(() => {
     const fetchTransaction = async () => {
-      const data = await TransactionAPI.get({ params: { id: transactionId }});
-      setTransaction(data?.transactions);
+      const data = await TransactionAPI.get({ params: { ':id': id }});
+      setTransaction(data);
     };
-    // fetchTransaction();
+    fetchTransaction();
   }, []);
 
-  const type = transaction?.type;
+  console.log('here', transaction?.effectiveDate);
 
+  const type = transaction?.type;
+  const convertedData = transaction?.effectiveDate ? new Date(transaction?.effectiveDate * 1000) : '-';
+  console.log('and here', convertedData);
 
   return (
     <div className={prefix}>
-      <Text className={`${prefix}__date`}>{transaction?.effectiveDate}</Text>
-      <Text className={classnames(`${prefix}__type`, {
-        [`${prefix}__debit`]: type == DEBIT,
-        [`${prefix}__credit`]: type == CREDIT,
-      })}>
-        {capitalize(type)}
-      </Text>
-      <Text className={`${prefix}__amount`}>${transaction?.amount}</Text>
-      <Text className={`${prefix}__author`}>{user.firstName} {user.lastName}</Text>
+      {transaction != null && (
+        <>
+          <Text className={`${prefix}__date`}>{convertedData}</Text>
+          <Text className={classnames(`${prefix}__type`, {
+            [`${prefix}__debit`]: type == DEBIT,
+            [`${prefix}__credit`]: type == CREDIT,
+          })}>
+            {capitalize(type)}
+          </Text>
+          <Text className={`${prefix}__amount`}>${transaction?.amount}</Text>
+          <Text className={`${prefix}__author`}>{user.firstName} {user.lastName}</Text>
+        </>
+      )}
     </div>
   );
 }

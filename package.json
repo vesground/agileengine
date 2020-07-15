@@ -29,7 +29,8 @@
   "scripts": {
     "server:dev": "nodemon --exec babel-node server/index.js",
     "client:dev": "react-app-rewired start",
-    "start": "npm run build && babel-node server/index.js",
+    "server": "babel-node server/index.js",
+    "start": "npm run build && npm run server",
     "build": "react-app-rewired build"
   },
   "eslintConfig": {

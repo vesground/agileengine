@@ -9,19 +9,14 @@ import './index.scss';
 function List({
   userId
 }) {
-  const [transactions, setTransactions] = useState([{
-    "id": "string",
-    "type": "credit",
-    "amount": 0,
-    "effectiveDate": "2020-07-15T05:12:30.811Z"
-  }]);
+  const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     const fetchTransactions = async () => {
       const data = await TransactionAPI.list({ query: { userId }});
       setTransactions(data?.transactions);
     };
-    // fetchTransactions();
+    fetchTransactions();
   }, []);
 
   return (

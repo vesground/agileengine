@@ -1,5 +1,6 @@
 import path from 'path';
 import express from 'express';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 
 import router from 'router.js';
@@ -10,6 +11,8 @@ server.use(cors())
 
 server.use('/', express.static(path.join(__dirname, '../build')));
 server.use('/public', express.static(path.join(__dirname, '../public')));
+
+server.use(bodyParser.json());
 
 server.use('/api/v1', router)
 
