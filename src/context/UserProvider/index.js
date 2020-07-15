@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import { UserContext } from './context';
-import UserAPI from 'service/UserAPI.js';
-// import { localStore } from 'service/localStorage';
-// import { isJsonString, deduplicate } from 'utils/helpers';
+import UserAPI from 'service/api/UserAPI.js';
 
-
-// const saveUserInLocalStore = courses => {
-//   localStore.setItem('ShoppingCart', JSON.stringify({ items: courses }));
-// };
-
-const UserProvider = (props) => {
+const UserProvider = ({ children, ...props }) => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
@@ -25,7 +18,7 @@ const UserProvider = (props) => {
     <UserContext.Provider
       value={{
         userContext: {
-          user: {}
+          user
         },
       }}
     >

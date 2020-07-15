@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'redux'
 
-import { withUserProvier } from 'context/UserProvider/withUserProvier.js';
+import { withUserProvier } from 'context/UserProvider/withProvider.js';
 
 import './index.css';
 
@@ -15,4 +15,4 @@ const enhancer = compose(
   withUserProvier
 );
 
-export default App;
+export default enhancer(App);

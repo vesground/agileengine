@@ -1,9 +1,7 @@
 import axios from 'axios';
-import cookieReader from 'js-cookie';
+// import cookieReader from 'js-cookie';
 
-const API_URL = 'http://localhost:3000/api/v1';
-const AUTH_HEADER = 'Authorization';
-const AUTH_COOKIE = 'access_token';
+const API_URL = 'http://localhost:4000/api/v1';
 
 const httpClient = (method = 'get') => ({
   path = '',
@@ -17,11 +15,6 @@ const httpClient = (method = 'get') => ({
   const headers = {
     ...additionalHeaders
   };
-  const token = cookieReader.get(AUTH_COOKIE);
-
-  if (token) {
-    headers[AUTH_HEADER] = `Bearer ${token}`;
-  }
 
   let pathWithParams = path;
   for (const param in params) {
@@ -38,13 +31,10 @@ const httpClient = (method = 'get') => ({
       headers,
       data,
     });
-    const result = { loading: false, data: response?.data, error: response?.detail }
 
-    return result;
+    return response;
   } catch (error) {
-    const result = { loading: false, data: null, error };
-    notify(result);
-    return result;
+    return error;
   }
 };
 

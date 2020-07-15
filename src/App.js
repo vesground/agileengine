@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UserProvider from 'src/context/UserProvider/index.js';
-import TransactionsList from 'src/routes/TransactionsList';
+import UserProvider from 'context/UserProvider/index.js';
+import TransactionsList from 'routes/TransactionsList';
 
 import './App.css';
 
